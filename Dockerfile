@@ -101,6 +101,7 @@ ENV CROWD_URL=http://localhost:8095/crowd \
 WORKDIR /var/atlassian/crowd
 VOLUME ["/var/atlassian/crowd"]
 EXPOSE 8095
+COPY lib/atlassian-extras-3.2.jar ${CROWD_INSTALL}/crowd-webapp/WEB-INF/lib/
 COPY imagescripts /home/crowd
 ENTRYPOINT ["/bin/tini","--","/home/crowd/docker-entrypoint.sh"]
 CMD ["crowd"]
